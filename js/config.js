@@ -4,8 +4,8 @@
 // 3. Run supabase/migrations/0001_init.sql in the Supabase SQL editor.
 // 4. Commit and push - GitHub Pages will deploy this folder automatically.
 window.SAFESHARE_CONFIG = {
-  SUPABASE_URL: 'https://YOUR-PROJECT-REF.supabase.co',
-  SUPABASE_ANON_KEY: 'YOUR-PUBLIC-ANON-KEY',
+  SUPABASE_URL: 'https://jzugkkhcwmshtxfcmvip.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_SUHTWIazvjUh7LBOWyCEWA_bNGyhsH7',
   // Base URL used inside QR codes. Leave '' to auto-detect from where the page
   // is served (recommended for GitHub Pages, e.g. https://phillipplanes.github.io/safeshare/).
   SITE_URL: ''
