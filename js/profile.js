@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!session) { return; }
     var user = session.user;
 
-    var res = await supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
+    var res = await SS.supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
     if (res.error) { SS.flash(res.error.message, 'error'); return; }
     var profile = res.data || {};
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         socials: newSocials,
         updated_at: new Date().toISOString()
       };
-      var up = await supabase.from('profiles').upsert(row, { onConflict: 'user_id' });
+      var up = await SS.supabase.from('profiles').upsert(row, { onConflict: 'user_id' });
       if (up.error) { SS.flash(up.error.message, 'error'); return; }
       SS.flash('Profile saved.', 'ok');
     });

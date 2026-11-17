@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!session) { return; }
     var user = session.user;
 
-    var res = await supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
+    var res = await SS.supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
     if (res.error) { SS.flash(res.error.message, 'error'); return; }
     var profile = res.data;
     if (!profile) {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         message: document.getElementById('message').value.trim() || null,
         cancel_message: document.getElementById('cancel_message').value.trim() || null
       };
-      var ins = await supabase.from('shares').insert(row).select().single();
+      var ins = await SS.supabase.from('shares').insert(row).select().single();
       if (ins.error) {
         SS.flash(ins.error.message, 'error');
         return;

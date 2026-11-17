@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    supabase.auth.signUp({ email: email, password: password }).then(function (res) {
+    SS.supabase.auth.signUp({ email: email, password: password }).then(function (res) {
       if (res.error) {
         SS.flash(res.error.message, 'error');
         return;
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
         SS.flash('Account created! Check your email for the confirmation link, then log in.', 'ok');
         form.reset();
       }
+    }).catch(function (err) {
+      SS.flash(err.message || 'Network error — could not reach the server.', 'error');
     });
   });
 });

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   SS.requireAuth(false).then(async function (session) {
     if (!session) { return; }
 
-    var res = await supabase.from('shares').select('*').eq('id', id).maybeSingle();
+    var res = await SS.supabase.from('shares').select('*').eq('id', id).maybeSingle();
     if (res.error) { SS.flash(res.error.message, 'error'); return; }
     var share = res.data;
     if (!share) {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cancelForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         var msg = document.getElementById('cancel_message').value.trim();
-        var upd = await supabase.from('shares').update({
+        var upd = await SS.supabase.from('shares').update({
           status: 'cancelled',
           cancelled_at: new Date().toISOString(),
           cancel_message: msg || null

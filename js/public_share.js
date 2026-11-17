@@ -59,11 +59,13 @@ document.addEventListener('DOMContentLoaded', function () {
       '</div>';
   }
 
-  supabase.rpc('get_public_share', { p_token: token }).then(function (res) {
+  SS.supabase.rpc('get_public_share', { p_token: token }).then(function (res) {
     if (res.error) {
       result.innerHTML = '<div class="card"><h1>Something went wrong</h1><p>' + SS.esc(res.error.message) + '</p></div>';
       return;
     }
     render(res.data);
+  }).catch(function (err) {
+    result.innerHTML = '<div class="card"><h1>Something went wrong</h1><p>' + SS.esc(err.message || 'Network error — could not reach the server.') + '</p></div>';
   });
 });

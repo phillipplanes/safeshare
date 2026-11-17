@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var email = document.getElementById('email').value.trim();
     var password = document.getElementById('password').value;
 
-    supabase.auth.signInWithPassword({ email: email, password: password }).then(function (res) {
+    SS.supabase.auth.signInWithPassword({ email: email, password: password }).then(function (res) {
       if (res.error) {
         SS.flash(res.error.message, 'error');
         if (/email not confirmed/i.test(res.error.message)) {
@@ -25,14 +25,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
       location.href = 'dashboard.html';
+    }).catch(function (err) {
+      SS.flash(err.message || 'Network error — could not reach the server.', 'error');
     });
   });
 
   resendForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = document.getElementById('email').value.trim();
-    supabase.auth.resend({ type: 'signup', email: email }).then(function (res) {
+    SS.supabase.auth.resend({ type: 'signup', email: email }).then(function (res) {
       SS.flash(res.error ? res.error.message : 'Confirmation email sent — check your inbox.', res.error ? 'error' : 'ok');
+    }).catch(function (err) {
+      SS.flash(err.message || 'Network error — could not reach the server.', 'error');
     });
   });
 });

@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('verify-banner').style.display = 'block';
     }
     document.getElementById('resend-verify').addEventListener('click', function () {
-      supabase.auth.resend({ type: 'signup', email: user.email }).then(function (res) {
+      SS.supabase.auth.resend({ type: 'signup', email: user.email }).then(function (res) {
         SS.flash(res.error ? res.error.message : 'Confirmation email sent — check your inbox.', res.error ? 'error' : 'ok');
       });
     });
 
     var profile = null;
-    var pRes = await supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
+    var pRes = await SS.supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
     if (!pRes.error) { profile = pRes.data; }
 
     if (profile) {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('profile-summary').textContent = 'Your profile is empty — fill it in so you have something to share.';
     }
 
-    var res = await supabase.from('shares').select('*').order('created_at', { ascending: false });
+    var res = await SS.supabase.from('shares').select('*').order('created_at', { ascending: false });
     if (res.error) {
       document.getElementById('shares-list').innerHTML = '<p class="flash error">' + SS.esc(res.error.message) + '</p>';
       return;
