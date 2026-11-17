@@ -27,6 +27,7 @@ signup (email+password) → Supabase sends confirmation email → verify
 1. Create a project at <https://supabase.com>.
 2. In the **SQL editor**, run `supabase/migrations/0001_init.sql` (creates tables, RLS policies, and the public RPC).
 3. Auth is email+password by default. Keep **Auth → Providers → Email → "Confirm email"** enabled — only confirmed users can create shares (the app checks `email_confirmed_at`).
+   - To skip email confirmation entirely (e.g. while testing), run `supabase/migrations/0002_auto_confirm_email.sql`: a trigger stamps `email_confirmed_at` on every new `auth.users` row, and existing unconfirmed users are confirmed too.
 4. Go to **Project Settings → API** and copy the **Project URL** and the **anon public** key.
 
 ### 2. Configure the frontend
