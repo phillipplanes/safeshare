@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - SafeShare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav>
+        <span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span>
+        <span data-auth><a href="dashboard.html">Dashboard</a> <a href="profile.html">My profile</a> <a href="share_new.html">New share</a> <a href="#" id="logout">Log out</a></span>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <h1>Dashboard</h1>
+    <div id="flash" class="flash" style="display:none"></div>
+
+    <div id="verify-banner" class="flash error" style="display:none">
+      Your email is not confirmed yet — you can't create shares until you confirm it.
+      <button class="btn small ghost" id="resend-verify" type="button">Resend confirmation email</button>
+    </div>
+
+    <div class="card">
+      <h2>My profile</h2>
+      <p id="profile-summary" class="muted">Loading…</p>
+      <p><a class="btn ghost" href="profile.html">Edit profile &amp; socials</a></p>
+    </div>
+
+    <div class="card">
+      <h2>My shares <a class="btn small" href="share_new.html">+ New timed share</a></h2>
+      <div id="shares-list"><p class="muted">Loading…</p></div>
+    </div>
+  </main>
+  <footer class="wrap"><p>SafeShare — your info, on your schedule.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SafeShare - share your info on your own schedule</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav>
+        <span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span>
+        <span data-auth><a href="dashboard.html">Dashboard</a> <a href="profile.html">My profile</a> <a href="share_new.html">New share</a> <a href="#" id="logout">Log out</a></span>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Share your contact info — but only when it's safe.</h1>
+      <p>
+        At a party and want to exchange details? Create a timed share, show the QR code,
+        and your info is only revealed after the release time you choose — so you can make
+        sure you got home safely. Changed your mind? Cancel the share any time and your
+        own message is what the other person sees instead.
+      </p>
+      <p>
+        <a class="btn" href="signup.html">Sign up free</a>
+        <a class="btn ghost" href="login.html">Log in</a>
+      </p>
+    </section>
+    <section class="steps">
+      <div class="step"><h3>1. Sign up &amp; verify</h3><p>Register with your email and password. We send a confirmation link — only verified users can create shares.</p></div>
+      <div class="step"><h3>2. Fill in your profile</h3><p>Your share name, email, phone, address and all your socials, ready to go.</p></div>
+      <div class="step"><h3>3. Create a timed share</h3><p>Pick exactly which fields to release, add a message, and choose the release date/time.</p></div>
+      <div class="step"><h3>4. Show the QR code</h3><p>The other person scans it and sees a countdown. After the release time, your info appears. Cancel any time before — or after — and they only see your cancel message.</p></div>
+    </section>
+  </main>
+  <footer class="wrap"><p>SafeShare — your info, on your schedule.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { SS.initChrome(); });</script>
+</body>
+</html>

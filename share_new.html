@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New timed share - SafeShare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav>
+        <span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span>
+        <span data-auth><a href="dashboard.html">Dashboard</a> <a href="profile.html">My profile</a> <a href="share_new.html">New share</a> <a href="#" id="logout">Log out</a></span>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap narrow">
+    <h1>New timed share</h1>
+    <div id="flash" class="flash" style="display:none"></div>
+    <form id="share-form" class="card">
+      <h2>What to share</h2>
+      <p class="muted">Tick the fields to release. Fields left empty in <a href="profile.html">your profile</a> are disabled.</p>
+      <div id="fields-box"></div>
+
+      <h2>Release date &amp; time</h2>
+      <label>Reveal the info at
+        <input type="datetime-local" id="release_at" required>
+      </label>
+      <p class="muted">Before this moment the scanner only sees a countdown. A past time releases immediately.</p>
+
+      <h2>Messages</h2>
+      <label>Message shown together with your info once released
+        <textarea id="message" rows="3" maxlength="2000" placeholder="e.g. Great meeting you! Here's my info — call me tomorrow."></textarea>
+      </label>
+      <label>Message shown instead if you cancel the share
+        <textarea id="cancel_message" rows="3" maxlength="2000" placeholder="e.g. Changed my mind — not sharing after all."></textarea>
+      </label>
+
+      <button class="btn" type="submit">Create share &amp; QR code</button>
+    </form>
+  </main>
+  <footer class="wrap"><p>SafeShare — your info, on your schedule.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/share_new.js"></script>
+</body>
+</html>

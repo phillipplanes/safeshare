@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in - SafeShare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav>
+        <span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span>
+        <span data-auth><a href="dashboard.html">Dashboard</a> <a href="profile.html">My profile</a> <a href="share_new.html">New share</a> <a href="#" id="logout">Log out</a></span>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap narrow">
+    <h1>Log in</h1>
+    <div id="flash" class="flash" style="display:none"></div>
+    <form id="login-form" class="card">
+      <label>Email
+        <input type="email" id="email" autocomplete="email" required>
+      </label>
+      <label>Password
+        <input type="password" id="password" autocomplete="current-password" required>
+      </label>
+      <button class="btn" type="submit">Log in</button>
+      <p class="muted">No account yet? <a href="signup.html">Sign up</a></p>
+    </form>
+    <form id="resend-form" class="card" style="display:none">
+      <p>Your email is not confirmed yet.</p>
+      <button class="btn ghost" type="submit">Resend confirmation email</button>
+    </form>
+  </main>
+  <footer class="wrap"><p>SafeShare — your info, on your schedule.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

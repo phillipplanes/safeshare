@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Share details - SafeShare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav>
+        <span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span>
+        <span data-auth><a href="dashboard.html">Dashboard</a> <a href="profile.html">My profile</a> <a href="share_new.html">New share</a> <a href="#" id="logout">Log out</a></span>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap narrow">
+    <h1>Share details</h1>
+    <div id="flash" class="flash" style="display:none"></div>
+    <div id="content"><p class="muted">Loading…</p></div>
+
+    <form id="cancel-form" class="card danger-card" style="display:none">
+      <h2 id="cancel">Cancel this share</h2>
+      <p class="muted">The public link will immediately show the message below instead of your info — even after the release time passes.</p>
+      <label>Message shown at the link after cancelling
+        <textarea id="cancel_message" rows="3" maxlength="2000"></textarea>
+      </label>
+      <button class="btn danger" type="submit">Cancel share</button>
+    </form>
+  </main>
+  <footer class="wrap"><p>SafeShare — your info, on your schedule.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/share_view.js"></script>
+</body>
+</html>

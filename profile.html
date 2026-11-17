@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My profile - SafeShare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav>
+        <span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span>
+        <span data-auth><a href="dashboard.html">Dashboard</a> <a href="profile.html">My profile</a> <a href="share_new.html">New share</a> <a href="#" id="logout">Log out</a></span>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap narrow">
+    <h1>My profile</h1>
+    <div id="flash" class="flash" style="display:none"></div>
+    <p class="muted">This is the pool your timed shares draw from. Only the fields you tick when creating a share are ever revealed.</p>
+    <form id="profile-form" class="card">
+      <h2>Basics</h2>
+      <label>Share name (the name you want to be known by)
+        <input type="text" id="share_name" maxlength="120">
+      </label>
+      <label>Email
+        <input type="email" id="email">
+      </label>
+      <label>Phone
+        <input type="tel" id="phone" maxlength="60">
+      </label>
+      <label>Address
+        <input type="text" id="address" maxlength="255">
+      </label>
+      <h2>Socials <span class="muted">(username or full URL)</span></h2>
+      <div id="socials-inputs"></div>
+      <button class="btn" type="submit">Save profile</button>
+    </form>
+  </main>
+  <footer class="wrap"><p>SafeShare — your info, on your schedule.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

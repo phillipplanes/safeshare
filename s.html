@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shared info - SafeShare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="public">
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">SafeShare</a>
+      <nav><span data-guest><a href="login.html">Log in</a> <a class="btn small" href="signup.html">Sign up</a></span></nav>
+    </div>
+  </header>
+  <main class="wrap narrow">
+    <div id="result"><p class="muted">Loading…</p></div>
+  </main>
+  <footer class="wrap"><p>Shared via SafeShare — the sender controls what you see and when.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="assets/qrcode.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/public_share.js"></script>
+</body>
+</html>
